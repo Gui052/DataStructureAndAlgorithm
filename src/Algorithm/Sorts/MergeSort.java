@@ -12,6 +12,9 @@ public class MergeSort extends SortHelper implements Sorts {
     }
     //递归过程
     private void mergeSort(Comparable[] arr, int l, int r) {
+        if (l >= r) { //停止递归的判断
+            return;
+        }
         int mid = (r - l) / 2 + l;
         mergeSort(arr, l, mid);
         mergeSort(arr, mid + 1, r);
@@ -37,7 +40,7 @@ public class MergeSort extends SortHelper implements Sorts {
                 arr[k] = aux[i - l];
                 i++;
             } else if (aux[i - l].compareTo(aux[j - l]) < 0) { //哪个小就放进去，并且对应的索引也递增
-                arr[k] = aux[j - l];
+                arr[k] = aux[i - l];
                 i++;
             } else {
                 arr[k] = aux[j - l];
