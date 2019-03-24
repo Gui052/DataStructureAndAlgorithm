@@ -1,5 +1,7 @@
 package Algorithm.Test;
 
+import Algorithm.Sorts.Sorts;
+
 import java.util.Random;
 
 /**
@@ -29,12 +31,24 @@ public class SortTestHelper {
      * 打印数组函数
      * @param arr
      */
-    public static void print(Integer[] arr) {
+    public static void print(Comparable[] arr) {
         for (int i = 0; i < arr.length; i++) {
             if (i % 50 == 0) {
                 System.out.println();
             }
             System.out.print(arr[i] + " ");
         }
+        System.out.println();
+    }
+
+    public static void Test(Sorts sorts, Comparable[] arr) {
+
+        long startTime = System.nanoTime();
+
+        sorts.sort(arr);
+
+        long endTime = System.nanoTime();
+
+        System.out.println((endTime - startTime) / 1000000000.0);
     }
 }

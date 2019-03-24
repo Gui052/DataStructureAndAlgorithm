@@ -9,10 +9,15 @@ import Algorithm.Sorts.*;
  */
 public class MainTest {
     public static void main(String[] args) {
-        Integer[] a = new Integer[]{1, 6, 3, 8, 1, 8, 4, 3, 2};
-        Sorts bubbleSort = new QuickSort();
-        bubbleSort.sort(a);
+        Integer[] a = SortTestHelper.generateRandomArray(1000000, 0, 1000);
 
-        SortTestHelper.print(a);
+        Integer[] test1 = a.clone();
+
+        Sorts sorts = new HeapSort();
+        SortTestHelper.Test(sorts,test1);
+
+        Integer[] test2 = a.clone();
+        Sorts sorts1 = new HeapSortWithArray();
+        SortTestHelper.Test(sorts1, test2);
     }
 }
