@@ -13,11 +13,10 @@ public class InsertSort implements Sorts {
     }
 
     private void insertSort(Comparable[] arr, int l, int r) {
-        int sortLength = r - l + 1;
         for (int i = 1 + l; i <= r; i++) { //索引可以从1开始，0和0比较没什么用
             Comparable e = arr[i]; //这里采用记录索引最后赋值，交换的话太慢了
             int j = i;
-            for (; j > 0 && e.compareTo(arr[j - 1]) < 0; j--) {
+            for (; j > l && e.compareTo(arr[j - 1]) < 0; j--) { //小的往前插
                 arr[j] = arr[j - 1];
             }
             arr[j] = e;

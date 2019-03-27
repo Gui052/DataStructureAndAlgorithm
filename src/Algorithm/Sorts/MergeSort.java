@@ -36,7 +36,7 @@ public class MergeSort extends SortHelper implements Sorts {
             if (i>mid) {        //说明左边的元素已经没有了，只需要把有边的赋值过去
                 arr[k] = aux[j - l];
                 j++;
-            } else if (j > r) {  //有边没有元素了。
+            } else if (j > r) {  //右边没有元素了。
                 arr[k] = aux[i - l];
                 i++;
             } else if (aux[i - l].compareTo(aux[j - l]) < 0) { //哪个小就放进去，并且对应的索引也递增

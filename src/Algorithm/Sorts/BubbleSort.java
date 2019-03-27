@@ -13,7 +13,7 @@ public class BubbleSort extends SortHelper implements Sorts{
 
     private void bubbleSort(Comparable[] arr, int l, int r) {
         int sortLength = r - l + 1;//只需要排序在l和r之间就行了
-        for (int i = 0; i < sortLength; i++) {
+        for (int i = l; i <= r; i++) {
             boolean flag = false;
             for (int j = l; j < r - i; j++) { //j要小于r-i，因为下面还有j+1
                 if (arr[j].compareTo(arr[j + 1]) > 0) {
