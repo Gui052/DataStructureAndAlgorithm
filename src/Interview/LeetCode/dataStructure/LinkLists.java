@@ -52,7 +52,7 @@ public class LinkLists {
             temp = next;
         }
         temp.next = prev;
-        return temp;
+        return temp; //最后一个结点需要手动赋值
     }
     //递归写法
     public ListNode reverseList1(ListNode head){

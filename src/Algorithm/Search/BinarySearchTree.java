@@ -159,7 +159,7 @@ public class BinarySearchTree<K extends Comparable<K>,V extends Comparable<V>> {
      * 层次遍历
      */
     public void leverOrder() {
-        Queue<Node> nodes = new LinkedList<Node>();
+        Queue<Node> nodes = new LinkedList<>();
         nodes.add(root);
         while (!nodes.isEmpty()) {
 
