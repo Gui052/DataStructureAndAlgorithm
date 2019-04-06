@@ -1,6 +1,7 @@
 package Interview.JianZhi_Offer;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Stack;
 
@@ -118,18 +119,18 @@ public class Solution {
         for (int i = 0; i < in.length; i++) {
             map.put(in[i], i);
         }
-        return preIn(pre, 0, pre.length - 1, in, 0, in.length - 1, map);
+        return preIn(pre, 0, pre.length - 1, 0, map);
     }
 
-    private TreeNode preIn(int[] p, int pi, int pj, int[] n, int ni, int nj, HashMap map) {
-        if (pi > pj) {
+    private TreeNode preIn(int[] pre, int preL, int preR, int inL, HashMap map) {
+        if (preL > preR)
             return null;
-        }
-        TreeNode head = new TreeNode(p[pi]);
-        int index = (int)map.get(p[pi]);
-        head.left = preIn(p, pi + 1, pi + index - ni, n, ni, index - 1, map);
-        head.right = preIn(p, pi + index - ni + 1, pj, n, index + 1, nj, map);
-        return head;
+        TreeNode root = new TreeNode(pre[preL]);
+        int inIndex = (int) map.get(root.val);
+        int leftTreeSize = inIndex - inL;
+        root.left = preIn(pre, preL + 1, preL + leftTreeSize, inL, map);
+        root.right = preIn(pre, preL + leftTreeSize + 1, preR, inL + leftTreeSize + 1, map);
+        return root;
     }
 
     /**
@@ -139,8 +140,6 @@ public class Solution {
      * NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。
      *
      * 实际上就是找到一个旋转数组的最小值
-     * @param array
-     * @return
      */
     public int minNumberInRotateArray(int [] array) {
         if (array.length==0) {
@@ -177,7 +176,7 @@ public class Solution {
 
     /**
      * 一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法
-     * （先后次序不同算不同的结果）
+     * （先后次序不同算不同的结果）.结果集合也是一个斐波那契数列
      * @param target
      * @return
      */
@@ -190,5 +189,98 @@ public class Solution {
             return 2;
         else
             return JumpFloor(target-1)+JumpFloor(target-2);
+    }
+    //非递归写法
+    public int JumpFloor2(int n) {
+        if (n <= 2) {
+            return n;
+        }
+        int pre1=1;
+        int pre2 = 2;
+        int result = 1;
+        for (int i = 2; i < n; i++) {
+            result = pre1 + pre2;
+            pre1 = pre2;
+            pre2 = result;
+        }
+        return result;
+    }
+
+    /**
+     * 一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶
+     * 总共有多少种跳法。 动态规划问题
+     * @param target
+     * @return
+     */
+    public int JumpFloorII(int target) {
+        int[] dp = new int[target];
+        Arrays.fill(dp, 1);
+        for (int i = 1; i < target; i++) {
+            for (int j = 0; j < i; j++) {
+                dp[i] += dp[j];
+            }
+        }
+        return dp[target - 1];
+    }
+    //数学解法
+    public int JumpFloorII2(int target) {
+        return (int) Math.pow(2, target - 1);
+    }
+
+    /**
+     * 我们可以用2*1的小矩形横着或者竖着去覆盖更大的矩形。请问用n个2*1的小矩形无重叠地
+     * 覆盖一个2*n的大矩形，总共有多少种方法？
+     * @param target
+     * @return
+     */
+    public int RectCover(int target) {
+        if (target <= 2) {
+            return target;
+        }
+        int pre1 = 1, pre2 = 2, result = 0;
+        for (int i = 3; i <= target; i++) {
+            result = pre1 + pre2;
+            pre1 = pre2;
+            pre2 = result;
+        }
+        return result;
+    }
+
+    /**
+     * 输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。
+     * 与位运算去除 n 的位级表示中最低的那一位。比如12的二进制1100，和11（1011）与运算后删除了表示
+     * 最低位那个，变成了1000。
+     */
+    public int NumberOf1(int n) {
+        int cnt = 0;
+        while (n != 0) {
+            cnt++;
+            n &= (n - 1);
+        }
+        return cnt;
+    }
+
+    /**
+     * 给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。
+     * n%2=0：x^n = (x*x)^(n/2)
+     * n%2=1：x^n = x*(x*x)^(n/2)
+     */
+    public double Power(double base, int exponent) {
+        if (exponent == 0) {
+            return 1;
+        }
+        if (exponent == 1) {
+            return base;
+        }
+        boolean isNagative = false;
+        if (exponent < 0) {
+            exponent = -exponent;
+            isNagative = true;
+        }
+        double pow = Power(base * base, exponent >> 1); //exponent/2
+        if (exponent % 2 != 0) {
+            pow = pow * base;
+        }
+        return isNagative ? 1 / pow : pow;
     }
 }
