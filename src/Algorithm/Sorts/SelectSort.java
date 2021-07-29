@@ -6,17 +6,17 @@ package Algorithm.Sorts;
  * @version 1.0.0
  * @since 2019/3/24  9:38
  */
-public class SelectSort extends SortHelper implements Sorts {
+public class SelectSort<T extends Comparable<T>> extends SortHelper<T> implements Sorts<T> {
     @Override
-    public void sort(Comparable[] arr) {
+    public void sort(T[] arr) {
         selectSort(arr, 0, arr.length - 1);
     }
 
-    private void selectSort(Comparable[] arr, int l, int r) {
+    private void selectSort(T[] arr, int l, int r) {
         for (int i = l; i <= r; i++) {
             int minIndex = i;
             for (int j = i + 1; j <= r; j++) {
-                if (arr[minIndex].compareTo(arr[j])>0) {
+                if (less(arr[i], arr[minIndex])) {
                     minIndex = j;
                 }
             }

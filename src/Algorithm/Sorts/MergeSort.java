@@ -5,13 +5,14 @@ package Algorithm.Sorts;
  * @version 1.0.0
  * @since 2019/3/24  0:04
  */
-public class MergeSort extends SortHelper implements Sorts {
+public class MergeSort<T extends Comparable<T>>
+        extends SortHelper<T> implements Sorts<T> {
     @Override
-    public void sort(Comparable[] arr) {
+    public void sort(T[] arr) {
         mergeSort(arr, 0, arr.length - 1);
     }
     //递归过程
-    private void mergeSort(Comparable[] arr, int l, int r) {
+    private void mergeSort(T[] arr, int l, int r) {
         if (l >= r) { //停止递归的判断
             return;
         }

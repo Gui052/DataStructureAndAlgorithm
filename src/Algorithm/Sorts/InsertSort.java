@@ -6,17 +6,17 @@ package Algorithm.Sorts;
  * @version 1.0.0
  * @since 2019/3/24  0:03
  */
-public class InsertSort implements Sorts {
+public class InsertSort<T extends Comparable<T>> extends SortHelper<T> implements Sorts<T> {
     @Override
-    public void sort(Comparable[] arr) {
+    public void sort(T[] arr) {
         insertSort(arr, 0, arr.length-1);
     }
 
-    private void insertSort(Comparable[] arr, int l, int r) {
-        for (int i = 1 + l; i <= r; i++) { //索引可以从1开始，0和0比较没什么用
-            Comparable e = arr[i]; //这里采用记录索引最后赋值，交换的话太慢了
+    private void insertSort(T[] arr, int l, int r) {
+        for (int i = 1 + l; i <= r; i++) {
+            T e = arr[i]; //这里采用记录索引最后赋值，交换的话太慢了
             int j = i;
-            for (; j > l && e.compareTo(arr[j - 1]) < 0; j--) { //小的往前插
+            for (; j > l && less(e, arr[j - 1]); j--) { //小的往前插
                 arr[j] = arr[j - 1];
             }
             arr[j] = e;
