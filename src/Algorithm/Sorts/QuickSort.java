@@ -37,9 +37,11 @@ public class QuickSort<T extends Comparable<T>>
         int j = l;
         for (int i = l + 1; i <= r; i++) {
             if (less(arr[i], v)) {
+                //在基准元素之后的位置进行交换
                 swap(arr, ++j, i);
             }
         }
+        //最后将基准元素放到位置上
         swap(arr, l, j);
         return j;
     }

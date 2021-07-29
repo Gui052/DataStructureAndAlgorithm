@@ -5,13 +5,14 @@ package Algorithm.Sorts;
  * @version 1.0.0
  * @since 2019/3/24  17:10
  */
-public class HeapSortWithArray extends SortHelper implements Sorts {
+public class HeapSortWithArray<T extends Comparable<T>>
+        extends SortHelper<T> implements Sorts<T> {
     @Override
-    public void sort(Comparable[] arr) {
+    public void sort(T[] arr) {
         heapSortWithArray(arr);
     }
 
-    public <T extends Comparable<T>> void heapSortWithArray(T[] arr) {
+    public void heapSortWithArray(T[] arr) {
         int n = arr.length;
         //heapify
         for (int i = (n - 1) / 2; i >= 0; i--) {
@@ -30,7 +31,7 @@ public class HeapSortWithArray extends SortHelper implements Sorts {
      * @param n
      * @param k
      */
-    private <T extends Comparable<T>> void shiftDown(T[] arr, int n, int k) {
+    private void shiftDown(T[] arr, int n, int k) {
         while (2 * k + 1 < n) {    //表示此节点一定有孩子
             int j = 2 * k+1;//此轮循环中，data[k]和data[j]交换位置
             if (j + 1 < n && arr[j + 1].compareTo(arr[j]) > 0) {  //左孩子和右孩子比较，哪个大j就是哪个
