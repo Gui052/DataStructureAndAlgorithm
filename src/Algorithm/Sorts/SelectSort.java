@@ -16,9 +16,9 @@ public class SelectSort<T extends Comparable<T>> extends SortHelper<T> implement
         if (r >= arr.length) {
             return;
         }
-        for (int i = l; i <= r; i++) {
+        for (int i = l; i < r; i++) {
             int minIndex = i;
-            for (int j = i + 1; j < r; j++) {
+            for (int j = i + 1; j <= r; j++) {
                 if (less(arr[i], arr[minIndex])) {
                     minIndex = j;
                 }
