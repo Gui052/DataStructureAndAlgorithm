@@ -4,7 +4,6 @@ package Algorithm.Heap;
  * 特点：完全二叉树。根节点大于左右孩子结点的值。一个结点i的父亲结点是i/2，左孩子是2*i，右孩子是2*i+1.<br/>
  * 如果用数组以1为索引存储，第一个不是叶子结点的结点索引为  最后一个叶子结点的索引/2
  * @author lan
- * @version 1.0.0
  * @since  2019/3/19  16:53
  */
 public class MaxHeap<T extends Comparable<T>> {
