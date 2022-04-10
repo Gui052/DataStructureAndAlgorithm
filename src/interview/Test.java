@@ -1,8 +1,6 @@
-package Interview;
+package interview;
 
-import Interview.LeetCode.dataStructure.Arrays;
-import Interview.LeetCode.dataStructure.BitOption;
-import Interview.LeetCode.dataStructure.Hash;
+import interview.leetcode.dataStructure.BitOption;
 
 /**
  * @author lan

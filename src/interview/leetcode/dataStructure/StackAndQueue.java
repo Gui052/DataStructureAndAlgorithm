@@ -1,6 +1,4 @@
-package Interview.LeetCode.dataStructure;
-
-import com.sun.org.apache.bcel.internal.generic.StackInstruction;
+package interview.leetcode.dataStructure;
 
 import java.util.Arrays;
 import java.util.LinkedList;

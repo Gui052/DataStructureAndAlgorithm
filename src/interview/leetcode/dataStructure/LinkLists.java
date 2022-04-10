@@ -1,4 +1,4 @@
-package Interview.LeetCode.dataStructure;
+package interview.leetcode.dataStructure;
 
 import java.util.Stack;
 

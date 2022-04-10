@@ -1,4 +1,4 @@
-package Interview.JianZhi_Offer;
+package interview.jianzhi_offer;
 
 /**
  * 数组和矩阵

@@ -1,4 +1,4 @@
-package Interview.JianZhi_Offer;
+package interview.jianzhi_offer;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,8 +1,7 @@
-package Interview.LeetCode.dataStructure;
+package interview.leetcode.dataStructure;
 
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Set;
 
 /** 哈希表相关
  * 哈希表使用 O(N) 空间复杂度存储数据，并且以 O(1) 时间复杂度求解问题。

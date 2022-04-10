@@ -1,4 +1,4 @@
-package Interview.LeetCode.dataStructure;
+package interview.leetcode.dataStructure;
 
 /** 位运算相关
  * @author lan
