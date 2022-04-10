@@ -26,11 +26,9 @@ public class FindKthLargest {
     }
 
     /**
-     * 索引从0开始的调整堆的函数
-     *
-     * @param arr
-     * @param n
-     * @param k
+     * 调整堆的函数
+     * @param n 堆中元素个数
+     * @param k 从此节点往下的子节点开始调整
      */
     private void shiftDown(int[] arr, int n, int k) {
         //k的左孩子计算方式
