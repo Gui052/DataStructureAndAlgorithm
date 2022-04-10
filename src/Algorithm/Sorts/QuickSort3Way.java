@@ -1,5 +1,7 @@
 package Algorithm.Sorts;
 
+import java.util.Random;
+
 /**
  * @author lan
  * @version 1.0.0
@@ -16,7 +18,7 @@ public class QuickSort3Way extends SortHelper implements Sorts {
         }
 
         //partition
-        swap(arr, l, (int) Math.random() % (r - l + 1) + l);
+        swap(arr, l, new Random().nextInt(r - l + 1) + l);
         Comparable v = arr[l];
 
         int lt=l;       //小于v的边界，arr[l+1....lt]<v，一开始保证lt=l（l是v元素故不算在内），此区间没有数据

@@ -11,8 +11,6 @@ import java.util.Random;
  */
 public class QuickSort<T extends Comparable<T>>
         extends SortHelper<T> implements Sorts<T> {
-    Random random = new Random();
-
     @Override
     public void sort(T[] arr) {
         quickSort(arr, 0, arr.length - 1);
@@ -30,7 +28,7 @@ public class QuickSort<T extends Comparable<T>>
     //这个函数是将数组分为大于小于基准元素的两份
     private int partition(T[] arr, int l, int r) {
         //随机选择一个元素，和第一个交换，可以加快近乎有序的数组的排序时间
-        swap(arr, l, random.nextInt() % (r - l + 1) + l);
+        swap(arr, l, new Random().nextInt(r - l + 1) + l);
 
         T v = arr[l];
 

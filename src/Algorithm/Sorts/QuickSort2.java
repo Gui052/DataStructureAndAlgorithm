@@ -1,5 +1,7 @@
 package Algorithm.Sorts;
 
+import java.util.Random;
+
 /** 快速排序算法改进<br/>
  * 则将两端分别置为大于和小于v的元素，把等于V的均匀分布在其中
  * @author lan
@@ -22,7 +24,7 @@ public class QuickSort2 extends SortHelper implements Sorts {
     }
 
     public int partition2(Comparable[] arr, int l, int r) {
-        swap(arr,l,(int)Math.random()%(r-l+1)+l);
+        swap(arr,l,new Random().nextInt(r - l + 1) + l);
         Comparable v = arr[l];
         //arr[l+1...i)<v, arr(j....r]>v
         int i=l+1, j=r;
