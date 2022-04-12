@@ -23,10 +23,10 @@ public class TokenBucketLimiter {
         long gap = now - lastTime;
 
         //计算时间段内的令牌数
-        int reverse_permits = (int) (gap * rate / 1000);
-        int all_permits = tokens.get() + reverse_permits;
+        int reversePermits = (int) (gap * rate / 1000);
+        int allPermits = tokens.get() + reversePermits;
         // 当前令牌数
-        tokens.set(Math.min(capacity, all_permits));
+        tokens.set(Math.min(capacity, allPermits));
 
         if (tokens.get() < applyCount) {
             // 若拿不到令牌,则拒绝
