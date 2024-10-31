@@ -5,9 +5,9 @@ package algorithm.sorts;
  * @version 1.0.0
  * @since 2019/3/24  9:02
  */
-public abstract class SortHelper<T extends Comparable<T>>{
-    public void swap(T[] arr, int from, int to) {
-        T temp = arr[from];
+public abstract class SortHelper {
+    public void swap(int[] arr, int from, int to) {
+        int temp = arr[from];
         arr[from] = arr[to];
         arr[to] = temp;
     }
@@ -15,7 +15,7 @@ public abstract class SortHelper<T extends Comparable<T>>{
     /**
      * v小于w
      */
-    public boolean less(T v, T w) {
-        return v.compareTo(w) < 0;
+    public boolean less(int v, int w) {
+        return v < w;
     }
 }

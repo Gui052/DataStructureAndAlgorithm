@@ -6,13 +6,12 @@ package algorithm.sorts;
  * @version 1.0.0
  * @since 2019/3/24  9:38
  */
-public class SelectSort<T extends Comparable<T>> extends SortHelper<T> implements Sorts<T> {
-    @Override
-    public void sort(T[] arr) {
+public class SelectSort extends SortHelper {
+    public void sort(int[] arr) {
         selectSort(arr, 0, arr.length - 1);
     }
 
-    private void selectSort(T[] arr, int l, int r) {
+    private void selectSort(int[] arr, int l, int r) {
         if (r >= arr.length) {
             return;
         }

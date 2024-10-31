@@ -7,16 +7,12 @@ package algorithm.sorts;
  * @version 1.0.0
  * @since 2019/3/23  23:54
  */
-public class BubbleSort<T extends Comparable<T>> extends SortHelper<T> implements Sorts<T> {
-    @Override
-    public void sort(T[] arr) {
-        bubbleSort(arr, 0, arr.length - 1);
-    }
+public class BubbleSort extends SortHelper {
 
-    private void bubbleSort(T[] arr, int l, int r) {
-        for (int i = l; i <= r; i++) {
+    private void bubbleSort(int[] arr) {
+        for (int i = 0; i <= arr.length; i++) {
             boolean flag = false;
-            for (int j = l; j < r - i; j++) {
+            for (int j = 0; j < arr.length - i; j++) {
                 //慢慢的把最大的元素推到最后面
                 if (less(arr[j + 1], arr[j])) {
                     swap(arr, j, j + 1);
