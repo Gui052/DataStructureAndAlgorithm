@@ -11,11 +11,10 @@ package algorithm.sorts;
 public class InsertSort extends SortHelper {
 
     private void insertSort(int[] arr) {
-        int r = arr.length - 1;
-        for (int i = 1; i <= r; i++) {
+        for (int i = 1; i <= arr.length - 1; i++) {
             int e = arr[i]; //这里采用记录索引最后赋值，交换的话太慢了
             int j = i;
-            for (; j > 0 && less(e, arr[j - 1]); j--) { //小的往前插
+            for (; j > 0 && e < arr[j - 1]; j--) { //小的往前插
                 arr[j] = arr[j - 1];
             }
             arr[j] = e;

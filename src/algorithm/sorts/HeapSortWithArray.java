@@ -9,7 +9,7 @@ package algorithm.sorts;
  */
 public class HeapSortWithArray extends SortHelper {
 
-    public void heapSortWithArray(int[] arr) {
+    public void sort(int[] arr) {
         int n = arr.length;
         //构建大根堆
         for (int i = (n - 1) / 2; i >= 0; i--) {
@@ -45,4 +45,12 @@ public class HeapSortWithArray extends SortHelper {
         }
     }
 
+    public static void main(String[] args) {
+        HeapSortWithArray sorter = new HeapSortWithArray();
+        int[] arr = new int[]{3, 4, 5, 2, 1, 6, 7, 8, 9};
+        sorter.sort(arr);
+        for (int j : arr) {
+            System.out.print(j + " ");
+        }
+    }
 }

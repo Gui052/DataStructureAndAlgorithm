@@ -33,7 +33,7 @@ public class QuickSort extends SortHelper {
 
         int j = l;
         for (int i = l + 1; i <= r; i++) {
-            if (less(arr[i], v)) {
+            if (arr[i] < v) {
                 //在基准元素之后的位置进行交换
                 swap(arr, ++j, i);
             }
@@ -41,5 +41,15 @@ public class QuickSort extends SortHelper {
         //最后将基准元素放到位置上
         swap(arr, l, j);
         return j;
+    }
+
+
+    public static void main(String[] args) {
+        QuickSort sorter = new QuickSort();
+        int[] arr = new int[]{3, 4, 5, 2, 1, 6, 7, 8, 9};
+        sorter.sort(arr);
+        for (int j : arr) {
+            System.out.print(j + " ");
+        }
     }
 }

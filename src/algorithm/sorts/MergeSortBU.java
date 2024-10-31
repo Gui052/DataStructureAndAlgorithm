@@ -18,4 +18,14 @@ public class MergeSortBU extends MergeSort{
             }
         }
     }
+
+
+    public static void main(String[] args) {
+        MergeSortBU sorter = new MergeSortBU();
+        int[] arr = new int[]{3, 4, 5, 2, 1, 6, 7, 8, 9};
+        sorter.sort(arr);
+        for (int j : arr) {
+            System.out.print(j + " ");
+        }
+    }
 }

@@ -53,4 +53,12 @@ public class MergeSort extends SortHelper {
 
     }
 
+    public static void main(String[] args) {
+        MergeSort sorter = new MergeSort();
+        int[] arr = new int[]{3, 4, 5, 2, 1, 6, 7, 8, 9};
+        sorter.sort(arr);
+        for (int j : arr) {
+            System.out.print(j + " ");
+        }
+    }
 }

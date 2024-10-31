@@ -46,4 +46,12 @@ public class QuickSort2 extends SortHelper {
         return j;
     }
 
+    public static void main(String[] args) {
+        QuickSort2 sorter = new QuickSort2();
+        int[] arr = new int[]{3, 4, 5, 2, 1, 6, 7, 8, 9};
+        sorter.sort(arr);
+        for (int j : arr) {
+            System.out.print(j + " ");
+        }
+    }
 }

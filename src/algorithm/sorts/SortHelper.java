@@ -11,11 +11,4 @@ public abstract class SortHelper {
         arr[from] = arr[to];
         arr[to] = temp;
     }
-
-    /**
-     * v小于w
-     */
-    public boolean less(int v, int w) {
-        return v < w;
-    }
 }

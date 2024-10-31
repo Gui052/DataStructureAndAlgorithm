@@ -11,12 +11,19 @@ import algorithm.heap.MaxHeap;
  */
 public class HeapSort extends SortHelper {
 
-    private void heapSort(int[] arr) {
-        int r = arr.length - 1;
+    private void sort(int[] arr) {
         MaxHeap maxHeap = new MaxHeap(arr);
-
         for (int i = arr.length - 1; i >= 0; i--) {
             arr[i] = maxHeap.extractMax();
+        }
+    }
+
+    public static void main(String[] args) {
+        HeapSort sorter = new HeapSort();
+        int[] arr = new int[]{3, 4, 5, 2, 1, 6, 7, 8, 9};
+        sorter.sort(arr);
+        for (int j : arr) {
+            System.out.print(j + " ");
         }
     }
 }

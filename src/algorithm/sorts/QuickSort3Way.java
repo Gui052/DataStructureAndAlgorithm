@@ -41,4 +41,13 @@ public class QuickSort3Way extends SortHelper {
         quickSort3Way(arr, gt, r);
     }
 
+    public static void main(String[] args) {
+        QuickSort3Way sorter = new QuickSort3Way();
+        int[] arr = new int[]{3, 4, 5, 2, 1, 6, 7, 8, 9};
+        sorter.sort(arr);
+        for (int j : arr) {
+            System.out.print(j + " ");
+        }
+    }
+
 }

@@ -9,12 +9,12 @@ package algorithm.sorts;
  */
 public class BubbleSort extends SortHelper {
 
-    private void bubbleSort(int[] arr) {
-        for (int i = 0; i <= arr.length; i++) {
+    private void sort(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
             boolean flag = false;
-            for (int j = 0; j < arr.length - i; j++) {
+            for (int j = 0; j < arr.length - 1; j++) {
                 //慢慢的把最大的元素推到最后面
-                if (less(arr[j + 1], arr[j])) {
+                if (arr[j + 1] < arr[j]) {
                     swap(arr, j, j + 1);
                     flag = true;
                 }
@@ -22,6 +22,15 @@ public class BubbleSort extends SortHelper {
             if (!flag) {
                 break;
             }
+        }
+    }
+
+    public static void main(String[] args) {
+        BubbleSort sorter = new BubbleSort();
+        int[] arr = new int[]{3, 4, 5, 2, 1, 6, 7, 8, 9};
+        sorter.sort(arr);
+        for (int j : arr) {
+            System.out.print(j + " ");
         }
     }
 }

@@ -1,7 +1,5 @@
 package algorithm.test;
 
-import algorithm.sorts.Sorts;
-
 import java.util.Random;
 
 /**
@@ -39,16 +37,5 @@ public class SortTestHelper {
             System.out.print(arr[i] + " ");
         }
         System.out.println();
-    }
-
-    public static void Test(Sorts sorts, Comparable[] arr) {
-
-        long startTime = System.nanoTime();
-
-        sorts.sort(arr);
-
-        long endTime = System.nanoTime();
-
-        System.out.println((endTime - startTime) / 1000000000.0);
     }
 }
